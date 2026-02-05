@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o meu amor ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="tela-1" class="container fade-in">
+        <header><h1>Meus Defeitos e Qualidades</h1></header>
+        <section class="conteudo">
+            <div class="mensagem">
+                <h3>Nas páginas a frente, mostrarei meus pontos fracos e fortes.</h3>
+                <p>        </p>    
+                <h3>Clique no botão abaixo para ver as próximas páginas.</h3><br><br>
+            </div>
+            <button onclick="irParaTela('tela-1', 'tela-2')">Siga Em Frente</button><br><br>
+        </section>
+    </div>
+
+    <div id="tela-2" class="container escondido">
+        <header><h1>💪 Pontos Fortes</h1></header>
+        <section class="conteudo">
+            <ul class="lista-amor">
+                <h3>
+                <li>1. Sou carinhoso e atencioso.</li>
+                <li>2. Gosto de ouvir e apoiar você.</li>
+                <li>3. Sei cozinhar um pouco.</li>
+                <li>4. Dedicado e comprometido.</li>
+                <li>5. Sou engraçado (eu tento!).</li>
+                <li>6. Paciente e forte.</li>
+                <li>7. Sou inteligente e bonito.</li>
+                <li>8. Fidelidade total (Programador/Gamer).</li>
+                </h3>
+            </ul>
+            <div class="botoes-container">
+                <button class="btn-voltar" onclick="irParaTela('tela-2', 'tela-1')">Voltar</button>
+                <button onclick="irParaTela('tela-2', 'tela-3')">Próximo</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="tela-3" class="container escondido">
+        <header><h1>⚠️ Pontos Fracos</h1></header>
+        <section class="conteudo">
+            <ul class="lista-amor">
+                <h3>
+                <li>1. Sou muito comilão.</li>
+                <li>2. Falo mais que a boca.</li>
+                <li>3. Sou um pouco bagunceiro.</li>
+                <li>4. Viciado em tecnologia e jogos.</li>
+                <li>5. Às vezes sou bem distraído.</li>
+                <li>6. Ansioso e perfeccionista.</li>
+                <li>7. Tem vezes q nn estou fazendo alguma coisa fisicamente, mas minha cabeça esta em outro mundo.</li>
+                <h3>
+            </ul>
+            <div class="botoes-container">
+                <button class="btn-voltar" onclick="irParaTela('tela-3', 'tela-2')">Voltar</button>
+                <button onclick="irParaTela('tela-3', 'tela-4')">Ver Veredito</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="tela-4" class="container escondido">
+        <header><h1>Veredito Final</h1></header>
+        <section class="conteudo">
+            <p class="mensagem">
+                <h3>
+                Mesmo com meus defeitos, prometo te fazer feliz todos os dias. e prometo que farei tudo por voce.
+                </h3>
+            </p>
+            <h3>Vale a pena o investimento?</h3>
+            <br>
+            <div class="botoes-container">
+                <button onclick="irParaTela('tela-4', 'tela-5')">Sim! 😍</button>
+                <button id="btn-nao" onmouseover="fuga(this)" onclick="fuga(this)">Não 😢</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="tela-5" class="container escondido">
+        <header><h1>AMEM JESUS</h1></header>
+        <section class="conteudo">
+            <p class="mensagem">
+                <h3>
+                Você acaba de adquirir um exemplar único de namorado programador! <br><br>
+                Prometo que essa foi a melhor escolha da sua vida. Te amo! ❤️<br><br>
+                <h3>
+            </p>
+            <button onclick="resetar()">Recomeçar</button>
+        </section>
+    </div>
+
+    <script>
+        function irParaTela(idAtual, idDestino) {
+            const atual = document.getElementById(idAtual);
+            const destino = document.getElementById(idDestino);
+            atual.classList.add('escondido');
+            atual.classList.remove('fade-in');
+            destino.classList.remove('escondido');
+            destino.classList.add('fade-in');
+        }
+
+        // Função para fazer o botão fugir
+        function fuga(botao) {
+            // Calcula posições aleatórias na tela
+            const larguraJanela = window.innerWidth - 150;
+            const alturaJanela = window.innerHeight - 150;
+
+            const novaX = Math.random() * larguraJanela;
+            const novaY = Math.random() * alturaJanela;
+
+            // Muda a posição para 'fixed' para ele sair do container se necessário
+            botao.style.position = "fixed";
+            botao.style.left = novaX + "px";
+            botao.style.top = novaY + "px";
+            botao.style.zIndex = "1000";
+        }
+
+        function resetar() {
+            // Volta o botão "Não" para o lugar original antes de recomeçar
+            const btnNao = document.getElementById('btn-nao');
+            btnNao.style.position = "static";
+            irParaTela('tela-5', 'tela-1');
+        }
+    </script>
+</body>
+</html>
